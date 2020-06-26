@@ -1,0 +1,14 @@
+
+
+<div class="cart-item " [class.bg-danger]="product.qty===0">
+<span>{{product.productName}} </span> X <span>{{product.qty}}</span>: <strong>{{(product.qty * product.price) | currency:'INR'}}</strong>
+
+
+</div>
+<div *ngIf="product.qty===0" >
+<button (click)="handlerRemoveFromCart()" type="button" class="btn  btn-sm redButton btn-sm btn-primary product_button">Remove From Cart</button>
+</div>
+<div *ngIf="product.qty>0" >
+  <button (click)="handlerRemoveFromCart()" type="button" class="btn  btn-sm redButton btn-sm btn-primary product_button">Reduce Quantity</button>
+   </div>
+
