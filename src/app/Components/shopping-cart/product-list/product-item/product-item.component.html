@@ -3,7 +3,7 @@
 
   <div class="card-body">
     <p class="cardtext"><strong>{{product_item.price| currency:"INR"}}</strong></p>
-    <p class="card-text">{{product_item.description}}</p>
+    <p class="card-text">{{product_item.description | slice: 0:50}}...</p>
     <div class="d-flex justify-content-between align-items-center">
       <div class="btn-group">
         <button (click)="handlerAddToCart()" type="button" class="btn redButton btn-sm btn-primary product_button">Add to Cart</button>

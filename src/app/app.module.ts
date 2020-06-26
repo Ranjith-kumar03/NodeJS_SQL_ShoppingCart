@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './Components/Shared/header/header.component';
@@ -23,10 +24,12 @@ import { ProductItemComponent } from './Components/shopping-cart/product-list/pr
     ProductListComponent,
     CartComponent,
     CartItemComponent,
-    ProductItemComponent
+    ProductItemComponent,
+
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
