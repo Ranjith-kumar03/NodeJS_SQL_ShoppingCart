@@ -1,8 +1,8 @@
 const express =  require('express')
-const db =require('../DB/index')
-const router = express.Router()
+const db =require('../DB/baseDBConnection')
+const router1 = express.Router()
 
-router.get('/', async (req, res ,next)=>{
+router1.get('/products', async (req, res ,next)=>{
     try{
         let results = await db.all()
         res.json(results)
@@ -13,7 +13,7 @@ router.get('/', async (req, res ,next)=>{
 
 })
 
-router.get('/:id', async (req, res ,next)=>{
+router1.get('/:id', async (req, res ,next)=>{
     try{
         let results = await db.getOne(req.params.id)
         res.json(results)
@@ -24,7 +24,7 @@ router.get('/:id', async (req, res ,next)=>{
 
 })
 
-router.post('/add', async (req, res)=>{
+router1.post('/add', async (req, res)=>{
     try{
         let results = await db.addOne(req.body.iD,req.body.name,req.body.description,req.body.price,req.body.imageUrl)
         res.json(results)
@@ -34,7 +34,7 @@ router.post('/add', async (req, res)=>{
     }
 })
 
-router.put('/update/:id', async (req, res)=>{
+router1.put('/update/:id', async (req, res)=>{
     try{
         let results = await db.updateOne(req.params.id, req.body.name,req.body.description,req.body.price,req.body.imageUrl)
         res.json(results)
@@ -43,7 +43,7 @@ router.put('/update/:id', async (req, res)=>{
         res.sendStatus(500)
     }
 })
-router.delete('/delete/:id', async (req, res)=>{
+router1.delete('/delete/:id', async (req, res)=>{
     try{
         let results = await db.delete(req.params.id)
         res.json(results)
@@ -52,4 +52,7 @@ router.delete('/delete/:id', async (req, res)=>{
         res.sendStatus(500)
     }
 })
-module.exports = router
+
+/////////////////////////////////// Cart Item ////////////////////////////////////////////////////////////////////////////////////router.post('/Cartadd', async (req, res)=>{
+
+module.exports = router1

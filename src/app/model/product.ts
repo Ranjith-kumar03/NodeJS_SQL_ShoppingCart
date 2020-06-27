@@ -1,12 +1,12 @@
 export class Product {
-  id: number;
+  iD: number;
   name: string;
   description: string;
   price: number;
   imageUrl: string;
-constructor(id, name, description = '', price = 0, imageUrl = 'assets/pictureGallery/20200528_145826.jpg')
+constructor(iD, name, description = '', price = 0, imageUrl = 'assets/pictureGallery/20200528_145826.jpg')
 {
-  this.id = id;
+  this.iD = iD;
   this.name = name;
   this.description = description;
   this.price = price;

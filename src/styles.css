@@ -38,7 +38,7 @@ margin-bottom: 20px;
 } */
 
 .btn-primary:hover {
-  color: #fff;
+
   background-color: #dba800 !important;
   border-color: #8e8428 !important; /*set the color you want here*/
 }
@@ -67,14 +67,14 @@ margin-bottom: 20px;
 }
 
 .redButton{
-  color: #fff;
+  color:#fff !important;
   background-color:#FF0000 !important;
   border-color:#FF0000 !important;
 }
 
 .blueButton{
-  color: #fff;
-  background-color:#0c1bec !important;
+  color: #fff !important;
+  background-color:#0c1bec !important ;
   border-color:#1c04f1 !important;
 }
 

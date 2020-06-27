@@ -1,9 +1,9 @@
 
 <div class="fixedRight">
-<div *ngIf="cartItem.length===0" class="alert alert-info">Your Cart is Empty</div>
+<div *ngIf="cartItems.length===0" class="alert alert-info">Your Cart is Empty</div>
 
-<ul *ngIf="cartItem.length>0" class="list-group">
-<li class="list-group-item" *ngFor="let item of cartItem ">
+<ul *ngIf="cartItems.length>0" class="list-group">
+<li class="list-group-item" *ngFor="let item of cartItems ">
   <app-cart-item (childEvent)="reduceCount($event)" [product]="item"></app-cart-item>
 
 </li>
