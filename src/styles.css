@@ -98,4 +98,12 @@ margin-bottom: 20px;
 
 }
 
+.fas.fa-heart{
+  color: #FF0000;
+  cursor: pointer;
+}
+.far.fa-heart{
+  color: #FF0000;
+  cursor: pointer;
+}
 /* ///https://stackoverflow.com/questions/50138101/external-stylesheet-not-overriding-bootstrap */

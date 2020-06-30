@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +10,11 @@ export class MessangerService {
   sentMsg(product)
   {
    this.subject.next(product)
+   console.log("added to cart")
   }
-  getMsg()
+  getMsg():Observable<any>
   {
+    console.log("get was called Observable")
   return this.subject.asObservable()
   }
 }

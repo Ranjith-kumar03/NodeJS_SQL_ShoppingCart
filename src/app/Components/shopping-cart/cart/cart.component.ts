@@ -17,34 +17,40 @@ public reduceQtyCount:number =0
 public c1: CartItem
   constructor(private messangerService: MessangerService ,private cartService: CartService ) { }
    public id: number = 0;
-  
-   
+
+
   ngOnInit(): void {
-    this.handleSubscription()
-    this.loadCartItems()
-   
+   this.handleSubscription();
+
+  this.loadCartItems()
+
   }
 
   handleSubscription()
   {
-    this.messangerService.getMsg().subscribe((product: Product) => {
-      this.loadCartItems()
+    this.messangerService.getMsg().subscribe(() => {
+      setTimeout(() => {
+        this.loadCartItems()
+      }, 500);
+
    })
   }
   loadCartItems()
   {
-    this.cartService.getCartItem().subscribe((cartItems: CartItem[]) => {
-      
-     this.cartItems = cartItems
+    this.cartService.getCartItem().subscribe((CartItems: CartItem[]) => {
+
+     this.cartItems = CartItems
+
+     this.totalPrice();
+     console.log("display component called")
    })
   }
 
 
-  
 
-  addProductToCart(product:Product)
+
+  totalPrice()
   {
-    let productExists = false
     this.cartTotal = 0;
     this.cartItems.forEach(item => {
 this.cartTotal +=(item.qty * item.price);

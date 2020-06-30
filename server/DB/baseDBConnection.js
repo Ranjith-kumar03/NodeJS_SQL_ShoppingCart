@@ -156,5 +156,52 @@ database.updatecart = (productId,productName,qty,price) =>{
   });
 }
 
+////////////////////////////////////////// Wish List ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+database.addWishList = (id,product_id) =>{
+  let insertQuery = 'INSERT INTO ?? (??,??) VALUES (?,?)';
+  console.log("cartadd triggerd")
+  let query = mysql.format(insertQuery,["wishlist","id","product_id" ,id,product_id]);
+  con.query(query,(err, response) => {
+      if(err) {
+          console.error(err);
+          return;
+      }
+      // rows added
+      console.log(response);
+  });
+}
+
+
+database.getwishlist = ()=>{
+  return new Promise((resolve, reject) =>{
+      con.query('select * from wishlist' ,(err,results)=>{
+          if(err)
+          {
+
+              return reject(err);
+
+          }
+          console.log("Connected! iam in get wishlist");
+          return resolve(results)
+      })
+  })
+}
+
+database.deletewishlist = (id) =>{
+
+  let Query = 'delete from ?? where product_id =?';
+  console.log("delete Triggered in wish list")
+  let query = mysql.format(Query,["wishlist",id]);
+  con.query(query,(err, response) => {
+      if(err) {
+          console.error(err);
+          return;
+      }
+      // rows added
+      console.log(response);
+  });
+}
 
 module.exports = database

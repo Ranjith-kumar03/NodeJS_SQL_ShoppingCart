@@ -4,6 +4,7 @@ const cors = require('cors')
 const port = 3000
 const product = require('./Router/product')
 const cart = require('./Router/cart')
+const wishlist = require('./Router/wishlist')
 
 const app = express()
 app.use(bodyparser.json())
@@ -16,4 +17,5 @@ app.listen(port, function(){
 
 app.use("/product",product)
 app.use("/cart",cart)
+app.use("/wishlist",wishlist)
 

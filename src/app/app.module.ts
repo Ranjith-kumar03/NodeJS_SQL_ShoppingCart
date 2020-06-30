@@ -12,6 +12,7 @@ import { ProductListComponent } from './Components/shopping-cart/product-list/pr
 import { CartComponent } from './Components/shopping-cart/cart/cart.component';
 import { CartItemComponent } from './Components/shopping-cart/cart/cart-item/cart-item.component';
 import { ProductItemComponent } from './Components/shopping-cart/product-list/product-item/product-item.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ProductItemComponent } from './Components/shopping-cart/product-list/pr
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

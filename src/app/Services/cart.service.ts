@@ -17,36 +17,41 @@ export class CartService {
 
   getCartItem(): Observable<CartItem[]>
   {
+
      return this.http.get<CartItem[]>(GetcartUrl).pipe(
        map((result: any[]) =>{
          let cartItems: CartItem[] = [];
          for(let item of result)
          {
+           console.log("iam in the get")
            console.log(item)
            let productExists = false;
 
            for(let i in cartItems)
-    {
-      if(cartItems[i].productId === item.productId)
-      {
-              cartItems[i].qty++;
-              cartItems[i].price = item.price
-              productExists = true;
-              break;
-      }
+            {
+                  if(cartItems[i].productId === item.productId)
+                     {
+                          cartItems[i].qty++;
+                          cartItems[i].price = item.price
+                          productExists = true;
+                          break;
+            }
     }
            if(!productExists)
-    {
-      //let product = new Product()   id: 1, productId: 1, productName: "Panjith", qty: 1, price: 23}
-      let product = new Product(item.productId,item.productName, item.price ) 
-    cartItems.push(new CartItem(item.id, product));
-    }
+          {
+          console.log("product added in service")
 
-         } 
+      //iD, name, description = '', price = 0, imageUrl = 'assets/pictureGallery/20200528_145826.jpg'
+             let product = new Product(item.productId,item.productName,'', item.price ,'')
+             console.log(product.price)
+             cartItems.push(new CartItem(item.id, product));
+          }
+
+         }
 
          return cartItems;
        }));
-      
+
   }
 
   addCartItem(product: Product):Observable<any>

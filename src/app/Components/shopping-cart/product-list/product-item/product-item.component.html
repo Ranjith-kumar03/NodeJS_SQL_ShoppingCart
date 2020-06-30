@@ -2,7 +2,13 @@
   <img class="bd-placeholder-img card-img-top" width="100%" height="225" [src]="product_item.imageUrl" alt="image">
 
   <div class="card-body">
-    <p class="cardtext"><strong>{{product_item.price| currency:"INR"}}</strong></p>
+    <p
+    class="cardtext"><strong>{{product_item.price| currency:"INR"}}</strong>
+
+    <i *ngIf="!itemStatusWishlist"   class="far fa-heart float-right"  (click)="handleAddtoWishList()"></i>
+
+    <i *ngIf="itemStatusWishlist" class="fas fa-heart float-right" (click)="handleremoveFromWishList()"></i>
+  </p>
     <p class="card-text">{{product_item.description | slice: 0:50}}...</p>
     <div class="d-flex justify-content-between align-items-center">
       <div class="btn-group">
