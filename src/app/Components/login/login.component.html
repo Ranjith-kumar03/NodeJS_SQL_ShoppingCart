@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-md-4 offset-md-4">
+<form #registrationForm = "ngForm" (ngSubmit)="onSubmit($event,registrationForm.value)" >
+<div class="card">
+  <div class="card-header">
+    <h3 class="text-center">Login</h3>
+  </div>
+  <div class="card-body">
+<div class="form-group">
+  <label for="username">Username</label>
+  <input id="username" type="text" class="form-control" name="username" [(ngModel)]=model.username #username_errorDetails="ngModel" [class.is-invalid]="username_errorDetails.invalid && username_errorDetails.touched" reuired minlength="6">
+</div>
+<div class="form-group">
+  <label for="password">Password</label>
+  <input id="password" type="password" class="form-control" name="password" [(ngModel)]=model.password #password_errorDetails="ngModel" [class.is-invalid]="password_errorDetails.invalid && password_errorDetails.touched" reuired minlength="6">
+</div>
+<div class="form-group">
+  <label for="remenberme">Remember Me</label>
+  <input id="remenberme" type="select" name="remember"class="form-control" name="remenberme" [(ngModel)]=model.remenberme #remenberme_errorDetails="ngModel" [class.is-invalid]="remenberme_errorDetails.invalid && remenberme_errorDetails.touched" >
+</div>
+<div>
+  <button class="btn btn-primary btn-block" >Login Here</button>
+</div>
+</div>
+</div>
+
+</form>
+</div>
+</div>
