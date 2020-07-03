@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/model/user';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { EmailAddressValidator } from 'src/app/CustomValidators/emailaddressValidators';
+import { passwordValidator } from 'src/app/CustomValidators/passwordValidator';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +11,7 @@ import { EmailAddressValidator } from 'src/app/CustomValidators/emailaddressVali
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
+result:boolean = true;
   constructor(private builder: FormBuilder) { }
   user = new User();
   registrationForm: FormGroup;
@@ -22,9 +23,9 @@ export class RegisterComponent implements OnInit {
                          EmailAddressValidator(/^([a-zA-Z0-9\.\-\_]+)(@memail.com)$/)] ],
       password: ['',[Validators.required, Validators.minLength(8)]],
       confirmpassword: ['',[Validators.required, Validators.minLength(8)]],
-      }, {}
+      }, {validator: passwordValidator});
 
-      );
+
   }
 
   onSubmit(registrationForm)
@@ -34,18 +35,18 @@ export class RegisterComponent implements OnInit {
 
   get Name(): any
   {
-   return this.registrationForm.get('name')
+   return this.registrationForm.get('name');
   }
   get EmailAddress(): any
   {
-    return this.registrationForm.get('emailaddress')
+    return this.registrationForm.get('emailaddress');
   }
   get Password(): any
   {
-    return this.registrationForm.get('password')
+    return this.registrationForm.get('password');
   }
   get ConfirmPassword(): any
   {
-    return this.registrationForm.get('confirmpassword')
+    return this.registrationForm.get('confirmpassword');
   }
 }

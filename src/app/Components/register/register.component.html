@@ -2,7 +2,7 @@
   <div class="col-md-12 ">
     <div class="card">
         <div class ="card-header">
-          <h2>Please Fill Registration Form</h2>
+          <h2 class ="text-center">Please Fill Registration Form</h2>
         </div>
         <div class ="card-body">
          <form [formGroup]="registrationForm" (ngSubmit)="onSubmit(registrationForm)">
@@ -40,10 +40,14 @@
 
           <div class="form-group">
             <label for="confirmpassword">Please Enter the Pasword Again</label>
-            <input id="confirmpassword" type="password" class="form-control" formControlName="confirmpassword" [class.is-invalid]="ConfirmPassword.invalid && ConfirmPassword.touched">
-            <div *ngIf="ConfirmPassword.invalid && ConfirmPassword.touched">
+            <input id="confirmpassword" type="password" class="form-control" formControlName="confirmpassword" [class.is-invalid]="
+             ConfirmPassword.touched && (registrationForm.errors?.mismatch === ConfirmPassword.invalid )">
+
+            <div *ngIf="(registrationForm.errors?.mismatch || ConfirmPassword.invalid) && ConfirmPassword.touched">
               <div class="text-danger" *ngIf="ConfirmPassword.errors?.required && ConfirmPassword.touched">UserName is Required</div>
               <div class="text-danger" *ngIf="ConfirmPassword.errors?.minlength && ConfirmPassword.touched">Minimum Length error</div>
+              <div class="text-danger" *ngIf="registrationForm.errors?.mismatch">Password and Confirm password not matches</div>
+
               </div>
 
           </div>
