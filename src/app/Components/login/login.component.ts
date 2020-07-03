@@ -12,10 +12,10 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(e, value)
+  onSubmit(value)
   {
-    e.preventDefault()
-    console.log("gegegegegeg"+this.model.username)
+
+    console.log(this.model)
   }
 
 

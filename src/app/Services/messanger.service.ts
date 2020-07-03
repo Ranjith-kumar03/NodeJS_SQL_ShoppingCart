@@ -10,11 +10,11 @@ export class MessangerService {
   sentMsg(product)
   {
    this.subject.next(product)
-   console.log("added to cart")
+   ///console.log("added to cart")
   }
   getMsg():Observable<any>
   {
-    console.log("get was called Observable")
+   // console.log("get was called Observable")
   return this.subject.asObservable()
   }
 }

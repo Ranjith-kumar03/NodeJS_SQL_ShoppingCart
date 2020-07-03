@@ -20,9 +20,9 @@ public c1: CartItem
 
 
   ngOnInit(): void {
-   this.handleSubscription();
+    this.handleSubscription();
 
-  this.loadCartItems()
+    this.loadCartItems();
 
   }
 
@@ -42,7 +42,7 @@ public c1: CartItem
      this.cartItems = CartItems
 
      this.totalPrice();
-     console.log("display component called")
+     //console.log("display component called")
    })
   }
 
@@ -60,12 +60,27 @@ this.cartTotal +=(item.qty * item.price);
     reduceCount(item: CartItem)
     {
 
-      console.log("Reduce is triggered ------------------------" + typeof(item))
-       console.log(item.productName + "is the name from child")
+
+      // console.log(item)
 
       if(item.qty>0)
       {
-        item.qty--;
+        console.log("rwe are hit for refresh")
+
+        console.log("reduce count hit")
+        this.cartService.updateCartItemQuantity(item).subscribe((error)=>{
+          if(error!==null)
+          {
+          console.log(error)
+          console.log("Iam not getting data")
+          }
+          setTimeout(() => {
+            this.loadCartItems()
+          }, 500);
+
+        })
+
+
       }else{
         console.log("canno0t find cart item")
         this.cartItems.pop()

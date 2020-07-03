@@ -30,7 +30,7 @@ export class ProductListComponent implements OnInit {
   {
     this.wishListService.getWishList().subscribe(data => {
       this.wishlists  = data
-      console.log(" see the adata "+this.wishlists)
+     // console.log(" see the adata "+this.wishlists)
     })
   }
 

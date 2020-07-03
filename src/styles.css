@@ -107,3 +107,9 @@ margin-bottom: 20px;
   cursor: pointer;
 }
 /* ///https://stackoverflow.com/questions/50138101/external-stylesheet-not-overriding-bootstrap */
+
+
+.btn.disabled, .btn:disabled {
+  opacity: 0.00;
+  cursor: not-allowed;
+}

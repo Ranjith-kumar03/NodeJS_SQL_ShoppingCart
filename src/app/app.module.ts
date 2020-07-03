@@ -1,7 +1,11 @@
+import { WishlistService } from 'src/app/Services/wishlist.service';
+import { ProductService } from './Services/product.service';
+import { MessangerService } from 'src/app/Services/messanger.service';
+import { CartService } from 'src/app/Services/cart.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './Components/Shared/header/header.component';
@@ -41,9 +45,10 @@ import { AppRoutingModule } from './app-Routing.module';
     HttpClientModule,
     CommonModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [CartService, MessangerService, ProductService, WishlistService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
